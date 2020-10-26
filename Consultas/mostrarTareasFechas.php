@@ -5,7 +5,7 @@
 
     $dbConn = connect($db);
 
-    $sql = $dbConn->prepare("SELECT * FROM tarea WHERE fecha > :fechaInicial and fecha < :fechaFinal ORDER BY fecha");
+    $sql = $dbConn->prepare("SELECT * FROM tarea WHERE fecha >= :fechaInicial and fecha <= :fechaFinal ORDER BY fecha");
     $sql->bindValue(':fechaInicial', $_POST['fechaInicial']);
     $sql->bindValue(':fechaFinal', $_POST['fechaFinal']);
     $sql->execute();
